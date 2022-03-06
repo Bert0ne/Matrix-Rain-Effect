@@ -14,14 +14,18 @@ class Matrix {
 	 latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	 nums = '0123456789';
 	 alphabet = this.katakana + this.latin + this.nums;
-	 fontSize = 16;
-	 columns = canvas.width/this.fontSize;
+	 fontSize;
+	 columns;
 	 rainDrops = [];
 	
-	 constructor(rainSpeed) {
+	 constructor(rainSpeed, fSize) {
+		this.fontSize = fSize;
+		this.columns = canvas.width/this.fontSize;
+
 		this.createColumns()
 		this.rainInterval(rainSpeed);
 		this.resizeListener();
+
 	 }
 
 	 addArrIndexLoop(number,operation) {
@@ -79,4 +83,4 @@ class Matrix {
 	};
 }
   
-new Matrix(20);
+new Matrix(20, 16); // (rainSpeed, fontSize)
